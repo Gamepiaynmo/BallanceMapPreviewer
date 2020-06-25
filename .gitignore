@@ -345,3 +345,4 @@ Managers/
 Plugins/
 RenderEngines/
 Textures/
+*.csv
