@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{364c6a8d-7c69-4540-b197-04835e805ec3}</ProjectGuid>
+    <RootNamespace>VTPlayer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\GPIAY\Ballance\BML\virtools;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\GPIAY\Ballance\BML\virtools;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;BML_EXPORT=;_CRT_SECURE_NO_WARNINGS;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;BML_EXPORT=;_CRT_SECURE_NO_WARNINGS;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\BML\virtools\CK2dEntity.h" />
+    <ClInclude Include="..\BML\virtools\CK3dEntity.h" />
+    <ClInclude Include="..\BML\virtools\CKAll.h" />
+    <ClInclude Include="..\BML\virtools\CKAttributeManager.h" />
+    <ClInclude Include="..\BML\virtools\CKBaseManager.h" />
+    <ClInclude Include="..\BML\virtools\CKBehavior.h" />
+    <ClInclude Include="..\BML\virtools\CKBehaviorIO.h" />
+    <ClInclude Include="..\BML\virtools\CKBehaviorManager.h" />
+    <ClInclude Include="..\BML\virtools\CKBehaviorPrototype.h" />
+    <ClInclude Include="..\BML\virtools\CKBeObject.h" />
+    <ClInclude Include="..\BML\virtools\CKBitmapData.h" />
+    <ClInclude Include="..\BML\virtools\CKCamera.h" />
+    <ClInclude Include="..\BML\virtools\CKCollisionManager.h" />
+    <ClInclude Include="..\BML\virtools\CKContext.h" />
+    <ClInclude Include="..\BML\virtools\CKDataArray.h" />
+    <ClInclude Include="..\BML\virtools\CKDef.h" />
+    <ClInclude Include="..\BML\virtools\CKdefines2.h" />
+    <ClInclude Include="..\BML\virtools\CKDependencies.h" />
+    <ClInclude Include="..\BML\virtools\CKEnums.h" />
+    <ClInclude Include="..\BML\virtools\CKError.h" />
+    <ClInclude Include="..\BML\virtools\CKGlobals.h" />
+    <ClInclude Include="..\BML\virtools\CKGroup.h" />
+    <ClInclude Include="..\BML\virtools\CKInputManager.h" />
+    <ClInclude Include="..\BML\virtools\CKLevel.h" />
+    <ClInclude Include="..\BML\virtools\CKLight.h" />
+    <ClInclude Include="..\BML\virtools\CKMaterial.h" />
+    <ClInclude Include="..\BML\virtools\CKMesh.h" />
+    <ClInclude Include="..\BML\virtools\CKMessage.h" />
+    <ClInclude Include="..\BML\virtools\CKMessageManager.h" />
+    <ClInclude Include="..\BML\virtools\CKObject.h" />
+    <ClInclude Include="..\BML\virtools\CKObjectArray.h" />
+    <ClInclude Include="..\BML\virtools\CKObjectDeclaration.h" />
+    <ClInclude Include="..\BML\virtools\CKParameter.h" />
+    <ClInclude Include="..\BML\virtools\CKParameterIn.h" />
+    <ClInclude Include="..\BML\virtools\CKParameterManager.h" />
+    <ClInclude Include="..\BML\virtools\CKParameterOperation.h" />
+    <ClInclude Include="..\BML\virtools\CKPathManager.h" />
+    <ClInclude Include="..\BML\virtools\CKPluginManager.h" />
+    <ClInclude Include="..\BML\virtools\CKRenderContext.h" />
+    <ClInclude Include="..\BML\virtools\CKRenderManager.h" />
+    <ClInclude Include="..\BML\virtools\CKRenderObject.h" />
+    <ClInclude Include="..\BML\virtools\CKScene.h" />
+    <ClInclude Include="..\BML\virtools\CKSceneObject.h" />
+    <ClInclude Include="..\BML\virtools\CKSound.h" />
+    <ClInclude Include="..\BML\virtools\CKSoundManager.h" />
+    <ClInclude Include="..\BML\virtools\CKSprite.h" />
+    <ClInclude Include="..\BML\virtools\CKSprite3D.h" />
+    <ClInclude Include="..\BML\virtools\CKSpriteText.h" />
+    <ClInclude Include="..\BML\virtools\CKStateObject.h" />
+    <ClInclude Include="..\BML\virtools\CKTexture.h" />
+    <ClInclude Include="..\BML\virtools\CKTimeManager.h" />
+    <ClInclude Include="..\BML\virtools\CKTypes.h" />
+    <ClInclude Include="..\BML\virtools\Vx2dVector.h" />
+    <ClInclude Include="..\BML\virtools\VxAllocator.h" />
+    <ClInclude Include="..\BML\virtools\VxColor.h" />
+    <ClInclude Include="..\BML\virtools\VxFrustum.h" />
+    <ClInclude Include="..\BML\virtools\VxMath.h" />
+    <ClInclude Include="..\BML\virtools\VxMathDefines.h" />
+    <ClInclude Include="..\BML\virtools\VxMatrix.h" />
+    <ClInclude Include="..\BML\virtools\VxMutex.h" />
+    <ClInclude Include="..\BML\virtools\VxPlane.h" />
+    <ClInclude Include="..\BML\virtools\VxQuaternion.h" />
+    <ClInclude Include="..\BML\virtools\VxRay.h" />
+    <ClInclude Include="..\BML\virtools\VxRect.h" />
+    <ClInclude Include="..\BML\virtools\VxSphere.h" />
+    <ClInclude Include="..\BML\virtools\VxVector.h" />
+    <ClInclude Include="..\BML\virtools\XArray.h" />
+    <ClInclude Include="..\BML\virtools\XBitArray.h" />
+    <ClInclude Include="..\BML\virtools\XClassArray.h" />
+    <ClInclude Include="..\BML\virtools\XHashFun.h" />
+    <ClInclude Include="..\BML\virtools\XHashTable.h" />
+    <ClInclude Include="..\BML\virtools\XObjectArray.h" />
+    <ClInclude Include="..\BML\virtools\XSArray.h" />
+    <ClInclude Include="..\BML\virtools\XSHashTable.h" />
+    <ClInclude Include="..\BML\virtools\XSmartPtr.h" />
+    <ClInclude Include="..\BML\virtools\XString.h" />
+    <ClInclude Include="..\BML\virtools\XUtil.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="VTPlayer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\BML\virtools\CK2dEntity.cpp" />
+    <ClCompile Include="..\BML\virtools\CK3dEntity.cpp" />
+    <ClCompile Include="..\BML\virtools\CKAttributeManager.cpp" />
+    <ClCompile Include="..\BML\virtools\CKBaseManager.cpp" />
+    <ClCompile Include="..\BML\virtools\CKBehavior.cpp" />
+    <ClCompile Include="..\BML\virtools\CKBehaviorIO.cpp" />
+    <ClCompile Include="..\BML\virtools\CKBehaviorManager.cpp" />
+    <ClCompile Include="..\BML\virtools\CKBehaviorPrototype.cpp" />
+    <ClCompile Include="..\BML\virtools\CKBeObject.cpp" />
+    <ClCompile Include="..\BML\virtools\CKBitmapData.cpp" />
+    <ClCompile Include="..\BML\virtools\CKCamera.cpp" />
+    <ClCompile Include="..\BML\virtools\CKCollisionManager.cpp" />
+    <ClCompile Include="..\BML\virtools\CKContext.cpp" />
+    <ClCompile Include="..\BML\virtools\CKDataArray.cpp" />
+    <ClCompile Include="..\BML\virtools\CKGlobals.cpp" />
+    <ClCompile Include="..\BML\virtools\CKGroup.cpp" />
+    <ClCompile Include="..\BML\virtools\CKInputManager.cpp" />
+    <ClCompile Include="..\BML\virtools\CKLevel.cpp" />
+    <ClCompile Include="..\BML\virtools\CKLight.cpp" />
+    <ClCompile Include="..\BML\virtools\CKMaterial.cpp" />
+    <ClCompile Include="..\BML\virtools\CKMesh.cpp" />
+    <ClCompile Include="..\BML\virtools\CKMessage.cpp" />
+    <ClCompile Include="..\BML\virtools\CKMessageManager.cpp" />
+    <ClCompile Include="..\BML\virtools\CKObject.cpp" />
+    <ClCompile Include="..\BML\virtools\CKObjectArray.cpp" />
+    <ClCompile Include="..\BML\virtools\CKObjectDeclaration.cpp" />
+    <ClCompile Include="..\BML\virtools\CKParameter.cpp" />
+    <ClCompile Include="..\BML\virtools\CKParameterIn.cpp" />
+    <ClCompile Include="..\BML\virtools\CKParameterManager.cpp" />
+    <ClCompile Include="..\BML\virtools\CKParameterOperation.cpp" />
+    <ClCompile Include="..\BML\virtools\CKPathManager.cpp" />
+    <ClCompile Include="..\BML\virtools\CKPluginManager.cpp" />
+    <ClCompile Include="..\BML\virtools\CKRenderContext.cpp" />
+    <ClCompile Include="..\BML\virtools\CKRenderManager.cpp" />
+    <ClCompile Include="..\BML\virtools\CKRenderObject.cpp" />
+    <ClCompile Include="..\BML\virtools\CKScene.cpp" />
+    <ClCompile Include="..\BML\virtools\CKSceneObject.cpp" />
+    <ClCompile Include="..\BML\virtools\CKSound.cpp" />
+    <ClCompile Include="..\BML\virtools\CKSoundManager.cpp" />
+    <ClCompile Include="..\BML\virtools\CKSprite.cpp" />
+    <ClCompile Include="..\BML\virtools\CKSprite3D.cpp" />
+    <ClCompile Include="..\BML\virtools\CKSpriteText.cpp" />
+    <ClCompile Include="..\BML\virtools\CKStateObject.cpp" />
+    <ClCompile Include="..\BML\virtools\CKTexture.cpp" />
+    <ClCompile Include="..\BML\virtools\CKTimeManager.cpp" />
+    <ClCompile Include="..\BML\virtools\VxMath.cpp" />
+    <ClCompile Include="..\BML\virtools\VxMatrix.cpp" />
+    <ClCompile Include="..\BML\virtools\VxQuaternion.cpp" />
+    <ClCompile Include="..\BML\virtools\XString.cpp" />
+    <ClCompile Include="VTPlayer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="VTPlayer.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico" />
+    <Image Include="VTPlayer.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
