@@ -338,3 +338,10 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+*.dll
+BuildingBlocks/
+Managers/
+Plugins/
+RenderEngines/
+Textures/
