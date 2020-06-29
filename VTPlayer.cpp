@@ -7,6 +7,7 @@ HWND hWnd;
 HINSTANCE hInst;
 CKContext* context;
 CKRenderContext* renderContext;
+UINT menuIds[26];
 
 CKInputManager* inputManager;
 CKRenderManager* renderManager;
@@ -21,6 +22,8 @@ BOOL ReleaseCKEnvironment();
 void ProcessCamera();
 BOOL OpenMapFile(const char* filename);
 void UpdateCamera();
+void UpdateBgMenu();
+void SetBackground(int id);
 
 void Assert(bool cond, const char* desc) {
     if (!cond) {
@@ -40,6 +43,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
     MyRegisterClass(hInstance);
     Assert(InitInstance(hInstance, nCmdShow), "Init Instance Error");
+    UpdateBgMenu();
     InitCKEnvironment();
 
     MSG msg;
@@ -317,7 +321,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance) {
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow) {
     hInst = hInstance;
 
-    hWnd = CreateWindow("vtplayer", "Ballance Map Previewer V1.1", WS_OVERLAPPEDWINDOW,
+    hWnd = CreateWindow("vtplayer", "Ballance Map Previewer V1.2", WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
     if (!hWnd)
@@ -327,6 +331,49 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow) {
     UpdateWindow(hWnd);
 
     return TRUE;
+}
+
+void UpdateBgMenu() {
+    HMENU bgMenu = CreateMenu();
+    std::string path = "Textures\\Sky\\";
+    for (int i = 0; i < 26; i++) {
+        menuIds[i] = 32800 + i;
+        char szMenu[16];
+        sprintf(szMenu, "Sky_%c", 'A' + i);
+        bool exist = true;
+        for (auto suffix : { "_Back", "_Right", "_Front", "_Left", "_Down" }) {
+            std::string file = path + szMenu + suffix + ".bmp";
+            if (!std::filesystem::exists(file)) {
+                exist = false;
+                break;
+            }
+        }
+
+        if (!exist) break;
+        MENUITEMINFO info = { 0 };
+        info.cbSize = sizeof(info);
+        info.fMask = MIIM_ID | MIIM_TYPE;
+        info.wID = menuIds[i];
+        info.dwTypeData = szMenu;
+        info.cch = strlen(szMenu) + 1;
+        InsertMenuItem(bgMenu, menuIds[i], false, &info);
+    }
+
+    InsertMenu(GetMenu(hWnd), 1, MF_BYPOSITION | MF_POPUP | MF_STRING, reinterpret_cast<UINT_PTR>(bgMenu), "背景(&B)");
+    DrawMenuBar(hWnd);
+}
+
+void SetBackground(int id) {
+    if (context) {
+        char skyName[16];
+        sprintf(skyName, "Sky_%c", 'A' + id);
+        CKBehavior* sky = static_cast<CKBehavior*>(context->GetObjectByNameAndClass("Gameplay_Sky", CKCID_BEHAVIOR));
+        CKBehavior* loadTex = FindFirstBB(sky, "Load Sky-Textures");
+        loadTex->GetInputParameter(0)->GetDirectSource()->SetStringValue(skyName);
+        auto str = static_cast<char*>(loadTex->GetInputParameter(0)->GetDirectSource()->GetReadDataPtr());
+        loadTex->ActivateInput(0);
+        loadTex->Activate(true);
+    }
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
@@ -360,6 +407,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
             DestroyWindow(hWnd);
             break;
         default:
+            for (int i = 0; i < 26; i++) {
+                if (wmId == menuIds[i]) {
+                    SetBackground(i);
+                    break;
+                }
+            }
             return DefWindowProc(hWnd, message, wParam, lParam);
         }
     }
